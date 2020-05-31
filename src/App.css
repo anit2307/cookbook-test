@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700&display=swap');
+
+:root {
+  --sidebar-flex:1.5;
+  --condiv-flex:6;
+  --fontsize-p:1.2rem;
+  --fontsize-nav:1.6rem;
+  --primaryColor: #dfcfba;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkGrey: #cfcfcf;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 3px;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+}
+*
+{
+  margin:0;
+  padding: 0;
+}
+body{
+  /* font-family: 'Raleway'; */
+  color: var(--mainBlack);
+  background: var(--mainWhite);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.App
+{
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+nav
+{
+  flex:var(--sidebar-flex);
+  background: var(--offWhite);
+}
+
+.nav-header {
+  text-align: center;
+}
+
+.nav-links {
+  /* height: 0;
+  overflow: hidden; */
+  transition: var(--mainTransition);
+  list-style-type: none;
+}
+
+.nav-links li {
+  border-bottom: var(--primaryColor) dashed 1px;
+}
+
+.nav-links a {
+  display: block;
+  text-decoration: none;
+  padding: 1rem 0;
+  color: var(--mainBlack);
+  transition: var(--mainTransition);
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
+}
+
+.nav-links a:hover {
+  color: var(--primaryColor);
+}
+
+.condiv
+{
+  flex:var(--condiv-flex);
+}
+
+/* Hero */
+.defaultHero,
+.recipesHero {
+  min-height: 60vh;
+  background: url("./images/Alliums-Garlic-Rubbed-Buttery-Roast-Chicken.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recipesHero {
+  background-image: url("./images/butter-basted-steak.jpg");
+  min-height: 50vh;
+}
+/* End of Hero */
+
+.banner {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--mainWhite);
+  padding: 2rem 1rem 0.6rem;
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+.banner h1 {
+  font-size: 2.5rem;
+}
+
+.banner div {
+  width: 6rem;
+  height: 2px;
+  background: var(--primaryColor);
+  margin: 1.7rem auto;
+}
+
+.banner p{
+  margin: 1rem auto;
+}
+/* Title */
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-title h4 {
+  font-size: 2rem;
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+.section-title div {
+  width: 5rem;
+  height: 5px;
+  margin: 0 auto;
+  background: var(--primaryColor);
+}
+/* end of Title */
+
+/* recipes */
+
+.recipes {
+  padding: 5rem 0;
+}
+.recipes-center {
+  width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 40px;
+}
+@media screen and (min-width: 776px) {
+  .recipes-center {
+    width: 90vw;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  }
+}
+@media screen and (min-width: 992px) {
+  .recipes-center {
+    width: 95vw;
+    max-width: 1170px;
+  }
+}
+/* end pf recipes */
+/* recipe */
+.recipe {
+  box-shadow: var(--lightShadow);
+  transition: var(--mainTransition);
+}
+.recipe:hover {
+  box-shadow: var(--darkShadow);
+}
+
+.img-container {
+  position: relative;
+}
+.img-container img {
+  width: 100%;
+  display: block;
+  transition: var(--mainTransition);
+}
+.author-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--mainWhite);
+  padding: 0.3rem 0.6rem 0.5rem;
+  border-bottom-right-radius: 1rem;
+  font-size: 0.5rem;
+  text-align: center;
+  transition: var(--mainTransition);
+}
+.author-top h6 {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: var(--mainSpacing);
+}
+.recipe-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0);
+  transition: all 0.3s linear;
+}
+.img-container:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.img-container:hover img {
+  opacity: 0.3;
+}
+.img-container:hover .author-top {
+  opacity: 0;
+}
+.img-container:hover .recipe-link {
+  transform: translate(-50%, -50%) scale(1);
+}
+.recipe-info {
+  background: var(--darkGrey);
+  text-transform: capitalize;
+  padding: 0.5rem 0;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: var(--mainSpacing);
+}
+/* end of recipe  */
+
+.btn-primary {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--mainBlack);
+  background: var(--primaryColor);
+  padding: 0.4rem 0.9rem;
+  border: 3px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
+
+/* details */
+
+.recipe-details-info {
+  width: 72vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 2rem auto;
+}
+.prep,
+.info {
+  margin: 1rem 0;
+}
+.prep h3 {
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+.prep p {
+  line-height: 1.5;
+}
+.info h3{
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+
+.prep h3, .info h3{
+  margin-bottom: 1.5rem;
+}
+
+.ingredients {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-column-gap: 2rem;
+  grid-row-gap: 1rem;
+}
+@media screen and (min-width: 992px) {
+  .recipe-details-info{
+    width: 72vw;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
+  .info {
+    padding-left: 3rem;
+  }
+}
+/* end of recipe details*/
+@media all and (max-width: 450px) {
+  :root {
+    --fontsize-nav:1rem;
+    --sidebar-flex:0;
+    --typing-font:2rem;
+  }
+  .App
+  {
+    flex-direction: column;
+  }
+  .sidebar
+  {
+    padding: 30px;
+    background: rgb(238,103,143);
+    background: linear-gradient(90deg, rgba(238,103,143,1) 50%, rgba(132,124,252,1) 80%);
+  }
+  
+  nav ul
+  {
+    display: flex;
+  }
+  nav ul li
+  {
+    margin: 10px;
+  }
+ 
+}
